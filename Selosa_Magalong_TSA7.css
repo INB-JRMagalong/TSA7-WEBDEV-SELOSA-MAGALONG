@@ -126,6 +126,7 @@ h2 {
 
 #earth, #sun, #moon {
     background-size: cover;
+    background-position: center;
 }
 
 .flexbox-operation, .align-item, .justify-content, .flex-direction, .flex-grow {
