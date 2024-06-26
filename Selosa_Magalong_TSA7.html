@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-box Simulator</title>
+    <link rel="stylesheet" href="Selosa_Magalong_TSA7.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="operations">
+            <div class="flexbox-operation">
+                <button class="btn" onclick="Reset()">Reset Flexbox</button>
+                <div class="gap-container">
+                    <p class="inactive-button">Gap</p>
+                    <input type="number" id="count-flex" value="0" min="0" oninput="Gap()">
+                </div>
+            </div>
+
+            <div class="flex-direction">
+                <h2>Flex Direction</h2>
+                <div class="btn-group">
+                    <button class="btn" onclick="Direction(1)">Row</button>
+                    <button class="btn" onclick="Direction(2)">Column</button>
+                </div>
+            </div>
+
+            <div class="justify-content">
+                <h2>Justify Content</h2>
+                <div class="btn-group">
+                    <button class="btn" onclick="JustifyContent(1)">Start</button>
+                    <button class="btn" onclick="JustifyContent(2)">Center</button>
+                    <button class="btn" onclick="JustifyContent(3)">End</button>
+                    <button class="btn" onclick="JustifyContent(4)">Space Between</button>
+                    <button class="btn" onclick="JustifyContent(5)">Space Around</button>
+                    <button class="btn" onclick="JustifyContent(6)">Space Evenly</button>
+                </div>
+            </div>
+
+            <div class="align-item">
+                <h2>Align Items</h2>
+                <div class="btn-group">
+                    <button class="btn" onclick="AlignItems(1)">Start</button>
+                    <button class="btn" onclick="AlignItems(2)">Center</button>
+                    <button class="btn" onclick="AlignItems(3)">End</button>
+                </div>
+            </div>
+
+            <div class="flex-grow">
+                <h2>Flex Grow</h2>
+                <div class="btn-group">
+                    <button class="btn" onclick="Grow(2)">Reset</button>
+                    <button class="btn" onclick="Grow(1)">Grow All</button>
+                </div>
+                <div class="flex-box">
+                    <p class="inactive-button">Earth</p>
+                    <input type="number" id="earth-grow" value="0" oninput="FlexGrow(1)">
+                    <p class="inactive-button">Sun</p>
+                    <input type="number" id="sun-grow" value="0" oninput="FlexGrow(2)">
+                    <p class="inactive-button">Moon</p>
+                    <input type="number" id="moon-grow" value="0" oninput="FlexGrow(3)">
+                </div>
+            </div>
+        </div>
+
+        <div class="simulation-box" id="simulation-box">
+            <div class="box" id="earth"></div>
+            <div class="box" id="sun"></div>
+            <div class="box" id="moon"></div>
+        </div>
+    </div>
+    <script src="Selosa_Magalong_TSA7.js"></script>
+</body>
+
+</html>
