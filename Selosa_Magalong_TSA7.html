@@ -1,77 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex-box Simulator</title>
-    <link rel="stylesheet" href="Selosa_Magalong_TSA7.css">
-</head>
+body {
+    background-image: url('bggif.gif');
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-<body>
-    <div class="container">
-        <div class="operations">
-            <div class="flexbox-operation">
-                <button class="btn" onclick="reset()">Reset Flexbox</button>
-                <div class="gap-container">
-                    <p class="inactive-button">Gap</p>
-                    <input type="number" id="count-flex" value="0" min="0" oninput="Gap()">
-                </div>
-            </div>
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-            <div class="flex-direction">
-                <h2>Flex Direction</h2>
-                <div class="btn-group">
-                    <button class="btn" onclick="Direction(1)">Row</button>
-                    <button class="btn" onclick="Direction(2)">Column</button>
-                </div>
-            </div>
+.operations {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+    border: 10px solid grey;
+}
 
-            <div class="justify-content">
-                <h2>Justify Content</h2>
-                <div class="btn-group">
-                    <button class="btn" onclick="JustifyContent(1)">Start</button>
-                    <button class="btn" onclick="JustifyContent(2)">Center</button>
-                    <button class="btn" onclick="JustifyContent(3)">End</button>
-                    <button class="btn" onclick="JustifyContent(4)">Space Between</button>
-                    <button class="btn" onclick="JustifyContent(5)">Space Around</button>
-                    <button class="btn" onclick="JustifyContent(6)">Space Evenly</button>
-                </div>
-            </div>
+.operations, .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
 
-            <div class="align-item">
-                <h2>Align Items</h2>
-                <div class="btn-group">
-                    <button class="btn" onclick="AlignItems(1)">Start</button>
-                    <button class="btn" onclick="AlignItems(2)">Center</button>
-                    <button class="btn" onclick="AlignItems(3)">End</button>
-                </div>
-            </div>
+.operations button, .operations input, .operations p {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 2px solid maroon;
+    border-radius: 10px;
+    background-color: maroon;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s, border 0.3s;
+}
 
-            <div class="flex-grow">
-                <h2>Flex Grow</h2>
-                <div class="btn-group">
-                    <button class="btn" onclick="Grow(2)">Reset</button>
-                    <button class="btn" onclick="Grow(1)">Grow All</button>
-                </div>
-                <div class="flex-box">
-                    <p class="inactive-button">Box 1</p>
-                    <input type="number" id="grow1" value="0" oninput="FlexGrow(1)">
-                    <p class="inactive-button">Box 2</p>
-                    <input type="number" id="grow2" value="0" oninput="FlexGrow(2)">
-                    <p class="inactive-button">Box 3</p>
-                    <input type="number" id="grow3" value="0" oninput="FlexGrow(3)">
-                </div>
-            </div>
-        </div>
+.operations input {
+    background-color: white;
+    color: black;
+}
 
-        <div class="simulation-box" id="simulation-box">
-            <div class="box" id="earth"></div>
-            <div class="box" id="sun"></div>
-            <div class="box" id="moon"></div>
-        </div>
-    </div>
-    <script src="Selosa_Magalong_TSA7.js"></script>
-</body>
+.operations button:hover {
+    background-color: #3C0008;
+    border-color: #3C0008;
+}
 
-</html>
+.operations p.inactive-button {
+    background-color: #666;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #000;
+}
+
+.simulation-box {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    border: 10px solid grey;
+    border-radius: 5px;
+    min-height: 75vh;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: white;
+}
+
+.box {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+#earth {
+    background-image: url(earth.jpg);
+}
+
+#sun {
+    background-image: url(sun.jpg);
+}
+
+#moon {
+    background-image: url(moon.jpg);
+}
+
+#earth, #sun, #moon {
+    background-size: cover;
+    background-position: center;
+}
+
+.flexbox-operation, .align-item, .justify-content, .flex-direction, .flex-grow {
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.flexbox-operation .gap-container, .flex-grow .flex-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flex-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexbox-operation input, .flex-grow input {
+    font-size: 1.2rem;
+    width: 50px;
+    text-align: center;
+}
