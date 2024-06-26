@@ -23,6 +23,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 95vh;
 }
 
 .operations {
@@ -36,6 +37,7 @@ body {
     border-radius: 10px;
     color: #000;
     border: 10px solid grey;
+    overflow-y: auto;
 }
 
 .operations, .btn-group {
